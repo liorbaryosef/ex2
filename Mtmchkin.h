@@ -60,7 +60,7 @@ public:
     //TODO: complete the Mtmchkin class.
 
 private:
-    char* m_player;
+    std::string m_player;
     Card* m_cards;
     int m_numOfCards;
 };
