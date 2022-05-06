@@ -8,9 +8,9 @@ Card::Card(CardType type, const CardStats& stats) {
     this->m_stats = stats;
 }
 
-void applyEncounter(Player& player) {
-    if (this->m_effect == Battle) {
-        bool win = (player.force >= this->m_stats.force);
+void Card::applyEncounter(Player& player) const {
+    if (this->m_effect == CardType::Battle) {
+        bool win = (player.force >= this->m_stats.force); //how do you access fields outside of your class?
         printBattleResult(win);
         if (win) {
             player.levelUp();
@@ -20,12 +20,12 @@ void applyEncounter(Player& player) {
             player.damage(this->m_stats.hpLossOnDefeat); //check that not negative in function or here?
         }
     }
-    else if (this->m_effect == Treasure) { //should this just be if?
+    else if (this->m_effect == CardType::Treasure) { //should this just be if?
         player.addCoins(this->m_stats.loot); //check that should be loot and not something else
     }
     else {
         if (player.pay(this->m_stats.cost)) {
-            if (this->m_effect == Heal) {
+            if (this->m_effect == CardType::Heal) {
                 player.heal(this->m_stats.heal);
             }
             else{
@@ -35,18 +35,18 @@ void applyEncounter(Player& player) {
     }
 }
 
-void printInfo() {
+void Card::printInfo() const {
     switch (this->m_effect) {
-        case Battle: 
+        case CardType::Battle: 
             printBattleCardInfo(this);
             break;
-        case Buff:
+        case CardType::Buff:
             printBuffCardInfo(this);
             break;
-        case Heal:
+        case CardType::Heal:
             printHealCardInfo(this);
             break;
-        case Treasure:
+        case CardType::Treasure:
             printTreasureCardInfo(this);
             break;
     }
