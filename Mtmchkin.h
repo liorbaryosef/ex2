@@ -56,12 +56,13 @@ public:
      *          GameStatus - the current status of the running game
      */
     GameStatus getGameStatus() const;
-
+    //Create destructor to free the arrays created in constructor
     //TODO: complete the Mtmchkin class.
 
 private:
-    //TODO: complete the Mtmchkin class.
-
+    char* m_player;
+    Card* m_cards;
+    int m_numOfCards;
 };
 
 
