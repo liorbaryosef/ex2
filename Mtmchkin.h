@@ -27,8 +27,12 @@ public:
 
     //Implementation Constructor 
     Mtmchkin& operator=(const Mtmchkin& original);
-    //Copy coonstructor    
+
+    //Copy constructor    
     Mtmchkin(const Mtmchkin& other);
+
+    //Destructor
+    ~Mtmchkin();
 
     /*
      * Play the next Card - according to the instruction in the exercise document
@@ -56,9 +60,6 @@ public:
      *          GameStatus - the current status of the running game
      */
     GameStatus getGameStatus() const;
-
-    //Destructors:
-
 
     //CREATED HELPER TEMPORARILY
     void printInfo();

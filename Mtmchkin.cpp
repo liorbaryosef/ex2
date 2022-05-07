@@ -36,10 +36,10 @@ Mtmchkin& Mtmchkin::operator=(const Mtmchkin& original) {
 //Copy constructor
 Mtmchkin::Mtmchkin(const Mtmchkin& original) : 
     m_player(original.m_player),
+    m_cards(new Card[original.m_numOfCards]),
     m_numOfCards(original.m_numOfCards),
     m_status(original.m_status),
-    m_nextCard(original.m_nextCard),
-    m_cards(new Card[original.m_numOfCards])
+    m_nextCard(original.m_nextCard)
 {
     for (int i = 0; i < m_numOfCards; i++) {
         m_cards[i] = original.m_cards[i];
