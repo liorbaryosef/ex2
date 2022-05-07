@@ -19,13 +19,13 @@ int validateForce(int givenForce);
 
 //Constructor for player
 Player::Player(std::string givenName, int givenMaxHP /*= DEFAULT_MAX_HP*/, int givenForce /*= DEFAULT_FORCE*/) \
-    : m_maxHP{validateHP(givenMaxHP)}
 {
     m_name = validateName(givenName);
     m_level = 1;
     m_force = validateForce(givenForce);
     m_hp = validateHP(givenMaxHP);
     m_coins = 0;
+    m_maxHP = validateHP(givenMaxHP);
 
 }
 

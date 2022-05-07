@@ -130,15 +130,13 @@ public:
     ~Player() = default;
     Player& operator=(const Player& other) = default;
 
-
 private:
     std::string m_name;
     int m_level;
     int m_force;
     int m_hp;
     int m_coins;
-    const int m_maxHP;
-
+    int m_maxHP;
 };
 
 #endif //EX2_PLAYER_H
