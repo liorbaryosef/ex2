@@ -1,7 +1,3 @@
-//
-// Created by Daniel_Meents on 07/04/2022.
-//
-
 #ifndef EX2_GAME_H
 #define EX2_GAME_H
 #include "Card.h"
@@ -29,6 +25,10 @@ public:
     */
     Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards);
 
+    //Implementation Constructor 
+    Mtmchkin& operator=(const Mtmchkin& original);
+    //Copy coonstructor    
+    Mtmchkin(const Mtmchkin& other);
 
     /*
      * Play the next Card - according to the instruction in the exercise document
@@ -56,13 +56,19 @@ public:
      *          GameStatus - the current status of the running game
      */
     GameStatus getGameStatus() const;
-    //Create destructor to free the arrays created in constructor
-    //TODO: complete the Mtmchkin class.
+
+    //Destructors:
+
+
+    //CREATED HELPER TEMPORARILY
+    void printInfo();
 
 private:
-    std::string m_player;
+    Player m_player;
     Card* m_cards;
     int m_numOfCards;
+    GameStatus m_status;
+    int m_nextCard;
 };
 
 
