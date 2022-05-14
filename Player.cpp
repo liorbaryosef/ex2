@@ -13,7 +13,7 @@ int validateForce(const int givenForce);
 
 
 //Constructor for player
-Player::Player(const char* givenName, const int givenMaxHP /*DEFAULT_MAX_HP*/, const int givenForce /*DEFAULT_FORCE*/)
+Player::Player(char* givenName, int givenMaxHP /*DEFAULT_MAX_HP*/, int givenForce /*DEFAULT_FORCE*/)
 {
     m_name = givenName;
     m_level = 1;

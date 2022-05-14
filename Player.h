@@ -20,7 +20,7 @@ public:
      * @return
      *      A new instance of Player.
     */
-    Player(const char* givenName, const int givenMaxHP = DEFAULT_MAX_HP, const int givenForce = DEFAULT_FORCE);
+    Player(char* givenName, int givenMaxHP = DEFAULT_MAX_HP, int givenForce = DEFAULT_FORCE);
 
 
     /*
