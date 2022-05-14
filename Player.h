@@ -1,17 +1,13 @@
-//
-// Created by liorb on 06/05/2022.
-//
-
 #ifndef EX2_PLAYER_H
 #define EX2_PLAYER_H
 
 #include <string>
 #include "utilities.h"
 
-#define DEFAULT_MAX_HP 100
-#define DEFAULT_FORCE 5
-#define DEFAULT_NAME "defaultPlayer"
-#define MAX_LEVEL 10
+const int DEFAULT_MAX_HP = 100;
+const int DEFAULT_FORCE = 5;
+const std::string DEFAULT_NAME = "defaultPlayer";
+const int MAX_LEVEL = 10;
 
 /*
  *  Player:

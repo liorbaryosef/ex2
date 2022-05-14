@@ -1,7 +1,3 @@
-//
-// Created by liorb on 06/05/2022.
-//
-
 #include "Player.h"
 #include "utilities.h"
 #include <iostream>
@@ -105,7 +101,10 @@ void Player::addCoins(int increaseCoins)
 //Return true if the payment was completed successfully, otherwise return false.
 bool Player::pay(int decreaseCoins)
 {
-    if ((decreaseCoins >= 0) && (m_coins - decreaseCoins >= 0)) {
+    if (decreaseCoins <= 0) {
+        return true;
+    }
+    if (m_coins - decreaseCoins >= 0) {
         m_coins -= decreaseCoins;
         return true;
     }
