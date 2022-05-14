@@ -8,7 +8,6 @@ using std::endl;
 
 //--------------------------------Helper Functions--------------------------------
 int validateHP(int givenMaxHP);
-std::string validateName(std::string givenName);
 int validateForce(int givenForce);
 //--------------------------------------------------------------------------------
 
@@ -17,7 +16,7 @@ int validateForce(int givenForce);
 Player::Player(std::string givenName  /*= DEFAULT_NAME*/, int givenMaxHP /*= DEFAULT_MAX_HP*/, \
         int givenForce /*= DEFAULT_FORCE*/)
 {
-    m_name = validateName(givenName);
+    m_name = givenName;
     m_level = 1;
     m_force = validateForce(givenForce);
     m_hp = validateHP(givenMaxHP);
@@ -128,21 +127,6 @@ int validateHP(int givenMaxHP)
         return DEFAULT_MAX_HP;
     }
     return givenMaxHP;
-}
-
-
-//Validates the given name from input - only English letters without spaces
-std::string validateName(std::string givenName)
-{
-    if (givenName.empty()) {
-        return DEFAULT_NAME;
-    }
-    for (std::string::size_type i = 0; i < givenName.size(); i++) {
-        if ((givenName[i] < 'A') || (givenName[i] > 'Z' && givenName[i] < 'a') || (givenName[i] > 'z')) {
-            return DEFAULT_NAME;
-        }
-    }
-    return givenName;
 }
 
 

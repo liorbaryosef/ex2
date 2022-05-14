@@ -54,11 +54,6 @@ Mtmchkin::~Mtmchkin()
     delete[] m_cards;
 }
 
-//Return the game status
-GameStatus Mtmchkin::getGameStatus() const
-{
-    return m_status;
-}
 
 //Play the next card in the deck, change the game status accordingly
 void Mtmchkin::playNextCard()
@@ -81,7 +76,7 @@ void Mtmchkin::playNextCard()
 }
 
 //Check if the game is over, return boolean value accordingly
-bool Mtmchkin::isOver()
+bool Mtmchkin::isOver() const
 {
     if (m_status == GameStatus::MidGame) {
         return false;
@@ -90,6 +85,14 @@ bool Mtmchkin::isOver()
         return true;
     }
 }
+
+
+//Return the game status
+GameStatus Mtmchkin::getGameStatus() const
+{
+    return m_status;
+}
+
 
 //HELPER FUNCTION TEMPORARILY CREATED
 void Mtmchkin::printInfo()
