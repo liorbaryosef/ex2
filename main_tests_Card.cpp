@@ -4,12 +4,12 @@
 #include "Mtmchkin.h"
 
 int main() {
-    CardStats stats(3, 40, 10, 30, 1, 20);
-    Card battle(CardType::Battle, stats);
+    //CardStats stats(3, 40, 10, 30, 1, 20);
+    Card battle(CardType::Battle, CardStats(3, 40, 10, 30, 1, 20));
     battle.Card::printInfo();
-    Player player1("John", 150, 2);
+    /*Player player1("John", 150, 2);
     Player player2("Sam", 300);
-   /* player2.Player::printInfo();
+    player2.Player::printInfo();
     battle.applyEncounter(player2);
     player2.Player::printInfo();
     CardStats stats2(4, 5, 6, 7, 8, 9);
@@ -30,7 +30,7 @@ int main() {
     Card strongBattle(CardType::Battle, statsStrong);
     strongBattle.Card::applyEncounter(player1);
     player1.Player::printInfo();
-    */CardStats stats3(1, 2, 3, 4, 5, 6);
+    CardStats stats3(1, 2, 3, 4, 5, 6);
     Card heal(CardType::Heal, stats3);
     heal.Card::printInfo();
     heal.applyEncounter(player1);
@@ -47,6 +47,9 @@ int main() {
     gameCopy.printInfo();
     Mtmchkin gameCopy2(game);
     std::cout << "Printing After Copy\n";
-    gameCopy.printInfo();
+    gameCopy.printInfo();*/
+
+    int numOfCards = 4;
+
     return 0;
 }

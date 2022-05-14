@@ -11,6 +11,13 @@
 
 class Player {
 public:
+
+    //Constant value for the maximum level a player can achieve
+    //Default values for the maximum HP amount and the default force if the input from the user is not valid
+    static const int MAX_LEVEL = 10;
+    static const int DEFAULT_MAX_HP = 100;
+    static const int DEFAULT_FORCE = 5;
+
     /*
      * C'tor of Player class
      *
@@ -20,7 +27,7 @@ public:
      * @return
      *      A new instance of Player.
     */
-    Player(char* givenName, int givenMaxHP = DEFAULT_MAX_HP, int givenForce = DEFAULT_FORCE);
+    Player(const char* givenName, int givenMaxHP = DEFAULT_MAX_HP, int givenForce = DEFAULT_FORCE);
 
 
     /*
@@ -120,12 +127,6 @@ public:
     Player(const Player&) = default;
     ~Player() = default;
     Player& operator=(const Player& other) = default;
-
-    //Constant value for the maximum level a player can achieve
-    //Default values for the maximum HP amount and the default force if the input from the user is not valid
-    const int MAX_LEVEL = 10;
-    const int DEFAULT_MAX_HP = 100;
-    const int DEFAULT_FORCE = 5;
 
 private:
     std::string m_name;
