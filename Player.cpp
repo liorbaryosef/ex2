@@ -7,8 +7,8 @@ using std::endl;
 
 
 //--------------------------------Helper Functions--------------------------------
-int validateHP(const int givenMaxHP);
-int validateForce(const int givenForce);
+int validateHP(int givenMaxHP);
+int validateForce(int givenForce);
 //--------------------------------------------------------------------------------
 
 
@@ -21,7 +21,6 @@ Player::Player(char* givenName, int givenMaxHP /*DEFAULT_MAX_HP*/, int givenForc
     m_hp = validateHP(givenMaxHP);
     m_coins = 0;
     m_maxHP = validateHP(givenMaxHP);
-
 }
 
 //Prints to screen the player's current stats
@@ -120,20 +119,20 @@ int Player::getAttackStrength() const
 //--------------------------------Helper Functions--------------------------------
 
 //Validates the given maximum Health Point value from input
-int validateHP(const int givenMaxHP)
+int validateHP(int givenMaxHP)
 {
     if (givenMaxHP <= 0) {
-        return DEFAULT_MAX_HP;
+        return Player::DEFAULT_MAX_HP;
     }
     return givenMaxHP;
 }
 
 
 //Validates the force from input
-int validateForce(const int givenForce)
+int validateForce(int givenForce)
 {
     if (givenForce <= 0) {
-        return DEFAULT_FORCE;
+        return Player::DEFAULT_FORCE;
     }
     return givenForce;
 }
