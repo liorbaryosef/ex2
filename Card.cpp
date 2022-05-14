@@ -3,12 +3,16 @@
 #include "utilities.h"
 #include "Player.h"
 
-Card::Card(CardType type, const CardStats& stats) {
+
+Card::Card(CardType type, const CardStats& stats)
+{
     m_effect = type;
     m_stats = stats;
 }
 
-void Card::applyEncounter(Player& player) const { //check if player is not null???
+//Encounter a card - play the card according to it's type
+void Card::applyEncounter(Player& player) const
+{ //check if player is not null???
     if (m_effect == CardType::Battle) {
         bool win = (player.getAttackStrength() >= m_stats.force);
         printBattleResult(win);
@@ -28,14 +32,16 @@ void Card::applyEncounter(Player& player) const { //check if player is not null?
             if (m_effect == CardType::Heal) {
                 player.heal(m_stats.heal);
             }
-            else{
+            else {
                 player.buff(m_stats.buff);
             }
         }
     }
 }
 
-void Card::printInfo() const {
+//Print card information
+void Card::printInfo() const
+{
     switch (m_effect) {
         case CardType::Battle: 
             printBattleCardInfo(m_stats);

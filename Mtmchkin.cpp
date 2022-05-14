@@ -6,7 +6,8 @@
 #include "Player.h"
 
 //Do we need some sort of default values for a game with no given parameters?
-Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :  m_player(playerName) { //check input??
+Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :  m_player(playerName)
+{ //check input??
     m_numOfCards = numOfCards;
     m_cards = new Card[m_numOfCards]; //remember to free!!
     for (int i = 0; i < m_numOfCards; i++) {
@@ -17,7 +18,8 @@ Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCard
 }
 
 //Implementation Constructor
-Mtmchkin& Mtmchkin::operator=(const Mtmchkin& original) {
+Mtmchkin& Mtmchkin::operator=(const Mtmchkin& original)
+{
     if (this == &original) {
         return *this;
     }
@@ -44,19 +46,23 @@ Mtmchkin::Mtmchkin(const Mtmchkin& original) :
     for (int i = 0; i < m_numOfCards; i++) {
         m_cards[i] = original.m_cards[i];
     }
-
 }
 
 //Destructor
-Mtmchkin::~Mtmchkin() {
+Mtmchkin::~Mtmchkin()
+{
     delete[] m_cards;
 }
 
-GameStatus Mtmchkin::getGameStatus() const {
+//Return the game status
+GameStatus Mtmchkin::getGameStatus() const
+{
     return m_status;
 }
 
-void Mtmchkin::playNextCard() {
+//Play the next card in the deck, change the game status accordingly
+void Mtmchkin::playNextCard()
+{
     m_cards[m_nextCard].printInfo();
     m_cards[m_nextCard].applyEncounter(m_player);
     m_player.printInfo();
@@ -74,7 +80,9 @@ void Mtmchkin::playNextCard() {
     }
 }
 
-bool Mtmchkin::isOver() {
+//Check if the game is over, return boolean value accordingly
+bool Mtmchkin::isOver()
+{
     if (m_status == GameStatus::MidGame) {
         return false;
     }
@@ -84,7 +92,8 @@ bool Mtmchkin::isOver() {
 }
 
 //HELPER FUNCTION TEMPORARILY CREATED
-void Mtmchkin::printInfo() {
+void Mtmchkin::printInfo()
+{
     std::cout << "Printing Game Info:\n";
     m_player.printInfo();
     m_cards[0].printInfo();

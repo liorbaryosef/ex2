@@ -25,7 +25,7 @@ public:
      * @return
      *      A new instance of Player.
     */
-    Player(std::string givenName, int givenMaxHP = DEFAULT_MAX_HP, int givenForce = DEFAULT_FORCE);
+    Player(std::string givenName = DEFAULT_NAME, int givenMaxHP = DEFAULT_MAX_HP, int givenForce = DEFAULT_FORCE);
 
 
     /*
@@ -83,7 +83,7 @@ public:
 
 
     /*
-     * Checks if the players health points has reached 0
+     * Checks if the player's health points has reached 0
      *
      * @return
      *      boolean value - return true if the HP is 0, otherwise return false

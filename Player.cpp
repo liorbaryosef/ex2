@@ -14,7 +14,8 @@ int validateForce(int givenForce);
 
 
 //Constructor for player
-Player::Player(std::string givenName, int givenMaxHP /*= DEFAULT_MAX_HP*/, int givenForce /*= DEFAULT_FORCE*/) \
+Player::Player(std::string givenName  /*= DEFAULT_NAME*/, int givenMaxHP /*= DEFAULT_MAX_HP*/, \
+        int givenForce /*= DEFAULT_FORCE*/)
 {
     m_name = validateName(givenName);
     m_level = 1;
@@ -137,8 +138,7 @@ std::string validateName(std::string givenName)
         return DEFAULT_NAME;
     }
     for (std::string::size_type i = 0; i < givenName.size(); i++) {
-        if ((givenName[i] < 'A') || (givenName[i] > 'Z' && givenName[i] < 'a') \
-            || (givenName[i] > 'z')) {
+        if ((givenName[i] < 'A') || (givenName[i] > 'Z' && givenName[i] < 'a') || (givenName[i] > 'z')) {
             return DEFAULT_NAME;
         }
     }
