@@ -61,9 +61,6 @@ public:
      */
     GameStatus getGameStatus() const;
 
-    //CREATED HELPER TEMPORARILY
-    void printInfo();
-
 private:
     Player m_player;
     Card* m_cards;

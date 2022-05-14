@@ -95,13 +95,3 @@ GameStatus Mtmchkin::getGameStatus() const
 {
     return m_status;
 }
-
-
-//HELPER FUNCTION TEMPORARILY CREATED
-void Mtmchkin::printInfo()
-{
-    std::cout << "Printing Game Info:\n";
-    m_player.printInfo();
-    m_cards[0].printInfo();
-}
-
