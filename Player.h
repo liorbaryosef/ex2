@@ -4,11 +4,6 @@
 #include <string>
 #include "utilities.h"
 
-const int DEFAULT_MAX_HP = 100;
-const int DEFAULT_FORCE = 5;
-const std::string DEFAULT_NAME = "defaultPlayer";
-const int MAX_LEVEL = 10;
-
 /*
  *  Player:
  *  This class represents a single player in the game.
@@ -25,7 +20,7 @@ public:
      * @return
      *      A new instance of Player.
     */
-    Player(std::string givenName = DEFAULT_NAME, int givenMaxHP = DEFAULT_MAX_HP, int givenForce = DEFAULT_FORCE);
+    Player(const char* givenName, const int givenMaxHP = DEFAULT_MAX_HP, const int givenForce = DEFAULT_FORCE);
 
 
     /*
@@ -61,7 +56,7 @@ public:
      * @return
      *      void
     */
-    void buff(int increaseForce);
+    void buff(const int increaseForce);
 
 
     /*
@@ -70,7 +65,7 @@ public:
      * @return
      *      void
     */
-    void heal(int increaseHP);
+    void heal(const int increaseHP);
 
 
     /*
@@ -79,7 +74,7 @@ public:
      * @return
      *      void
     */
-    void damage(int decreaseHP);
+    void damage(const int decreaseHP);
 
 
     /*
@@ -97,7 +92,7 @@ public:
      * @return
      *      void
     */
-    void addCoins(int increaseCoins);
+    void addCoins(const int increaseCoins);
 
 
     /*
@@ -106,7 +101,7 @@ public:
      * @return
      *      boolean value - return true if the payment was completed successfully, otherwise return false
     */
-    bool pay(int decreaseCoins);
+    bool pay(const int decreaseCoins);
 
 
     /*
@@ -126,6 +121,9 @@ public:
     ~Player() = default;
     Player& operator=(const Player& other) = default;
 
+    //Constant value for the maximum level a player can achieve
+    const int MAX_LEVEL = 10;
+
 private:
     std::string m_name;
     int m_level;
@@ -133,6 +131,10 @@ private:
     int m_hp;
     int m_coins;
     int m_maxHP;
+
+    //Default values for the maximum HP amount and the default force if the input from the user is not valid
+    const int DEFAULT_MAX_HP = 100;
+    const int DEFAULT_FORCE = 5;
 };
 
 #endif //EX2_PLAYER_H

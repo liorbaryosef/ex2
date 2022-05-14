@@ -7,14 +7,13 @@ using std::endl;
 
 
 //--------------------------------Helper Functions--------------------------------
-int validateHP(int givenMaxHP);
-int validateForce(int givenForce);
+int validateHP(const int givenMaxHP);
+int validateForce(const int givenForce);
 //--------------------------------------------------------------------------------
 
 
 //Constructor for player
-Player::Player(std::string givenName  /*= DEFAULT_NAME*/, int givenMaxHP /*= DEFAULT_MAX_HP*/, \
-        int givenForce /*= DEFAULT_FORCE*/)
+Player::Player(const char* givenName, const int givenMaxHP /*DEFAULT_MAX_HP*/, const int givenForce /*DEFAULT_FORCE*/)
 {
     m_name = givenName;
     m_level = 1;
@@ -46,7 +45,7 @@ int Player::getLevel() const
 }
 
 //Increases player's force by requested amount
-void Player::buff(int increaseForce)
+void Player::buff(const int increaseForce)
 {
     if (increaseForce >= 0) {
         m_force += increaseForce;
@@ -54,7 +53,7 @@ void Player::buff(int increaseForce)
 }
 
 //Increases player's Health Points by requested amount, until maximum is reached
-void Player::heal(int increaseHP)
+void Player::heal(const int increaseHP)
 {
     if (increaseHP >= 0) {
         if ((m_hp + increaseHP) > m_maxHP) {
@@ -67,7 +66,7 @@ void Player::heal(int increaseHP)
 }
 
 //Decreases player's Health Points by requested amount, until the value is 0
-void Player::damage(int decreaseHP)
+void Player::damage(const int decreaseHP)
 {
     if (decreaseHP >= 0) {
         if ((m_hp - decreaseHP) < 0) {
@@ -90,7 +89,7 @@ bool Player::isKnockedOut() const
 }
 
 //Increases the player's coins by the requested amount
-void Player::addCoins(int increaseCoins)
+void Player::addCoins(const int increaseCoins)
 {
     if (increaseCoins >= 0) {
         m_coins += increaseCoins;
@@ -99,7 +98,7 @@ void Player::addCoins(int increaseCoins)
 
 //Decreases the player's coins by the requested amount.
 //Return true if the payment was completed successfully, otherwise return false.
-bool Player::pay(int decreaseCoins)
+bool Player::pay(const int decreaseCoins)
 {
     if (decreaseCoins <= 0) {
         return true;
@@ -121,9 +120,9 @@ int Player::getAttackStrength() const
 //--------------------------------Helper Functions--------------------------------
 
 //Validates the given maximum Health Point value from input
-int validateHP(int givenMaxHP)
+int validateHP(const int givenMaxHP)
 {
-    if (givenMaxHP < 0) {
+    if (givenMaxHP <= 0) {
         return DEFAULT_MAX_HP;
     }
     return givenMaxHP;
@@ -131,9 +130,9 @@ int validateHP(int givenMaxHP)
 
 
 //Validates the force from input
-int validateForce(int givenForce)
+int validateForce(const int givenForce)
 {
-    if (givenForce < 0) {
+    if (givenForce <= 0) {
         return DEFAULT_FORCE;
     }
     return givenForce;

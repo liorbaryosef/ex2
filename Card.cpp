@@ -4,15 +4,16 @@
 #include "Player.h"
 
 
+//Constructor for Card
 Card::Card(CardType type, const CardStats& stats)
 {
     m_effect = type;
     m_stats = stats;
 }
 
-//Encounter a card - play the card according to it's type
+//Encounter a card - play the card according to its type.
 void Card::applyEncounter(Player& player) const
-{ //check if player is not null???
+{
     if (m_effect == CardType::Battle) {
         bool win = (player.getAttackStrength() >= m_stats.force);
         printBattleResult(win);
@@ -27,6 +28,7 @@ void Card::applyEncounter(Player& player) const
     else if (m_effect == CardType::Treasure) {
         player.addCoins(m_stats.loot);
     }
+    //Checks if the player has enough coins to pay. Performs the required actions accordingly.
     else {
         if (player.pay(m_stats.cost)) {
             if (m_effect == CardType::Heal) {
@@ -39,7 +41,7 @@ void Card::applyEncounter(Player& player) const
     }
 }
 
-//Print card information
+//Print card information based on its type.
 void Card::printInfo() const
 {
     switch (m_effect) {
